@@ -1,3 +1,9 @@
+using Domain.Config.ApiSettings;
+using Infrastructure.Interface;
+using Infrastructure.Interface.Repository;
+using Infrastructure.Repository;
+using Infrastructure.Services;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +16,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Up.Account.Graphs.Backend
@@ -26,6 +33,13 @@ namespace Up.Account.Graphs.Backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<UpApiSettings>(Configuration.GetSection(UpApiSettings.UpApiSettingsKey));
+
+            services.AddTransient<IUpAccountService, UpAccountService>();
+
+            services.AddTransient<IUpAccountRepository, UpAccountRepository>();
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

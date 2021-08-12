@@ -1,0 +1,15 @@
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\bin\Debug\net5.0\Domain.dll
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\obj\Debug\net5.0\Infrastructure.csprojAssemblyReference.cache
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\obj\Debug\net5.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfo.cs
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\bin\Debug\net5.0\Infrastructure.deps.json
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\bin\Debug\net5.0\Infrastructure.dll
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\bin\Debug\net5.0\ref\Infrastructure.dll
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\bin\Debug\net5.0\Infrastructure.pdb
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\bin\Debug\net5.0\Domain.pdb
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CopyComplete
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\obj\Debug\net5.0\Infrastructure.dll
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\obj\Debug\net5.0\ref\Infrastructure.dll
+C:\Users\adsyb\Documents\CODING\Up.Account.Graphs.Backend\Up.Account.Graphs.Backend\Infrastructure\obj\Debug\net5.0\Infrastructure.pdb
