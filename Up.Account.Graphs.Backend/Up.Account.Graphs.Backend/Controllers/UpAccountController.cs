@@ -22,7 +22,7 @@ namespace Up.Account.Graphs.Backend.Controllers
 
         [Route("GetTransactions/{startDate}/{endDate}")]
         [HttpGet]
-        public async Task<IActionResult> GetTransactionsWithinDates(DateTime startDate, DateTime endDate)
+        public async Task<IActionResult> GetTransactionsWithinDates(string startDate, string endDate)
         {
             var result = await _mediator.Send(new GetTransactionsQuery
             {

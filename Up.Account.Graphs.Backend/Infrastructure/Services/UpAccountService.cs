@@ -19,9 +19,9 @@ namespace Infrastructure.Services
             _upAccountRepository = upAccountRepository ?? throw new ArgumentNullException(nameof(upAccountRepository));
         }
 
-        public async Task<ServiceProcessResult<List<TransactionEntry>>> GetAccountTransactions(DateTime startDate, DateTime endDate)
+        public async Task<ServiceProcessResult<TransactionData>> GetAccountTransactions(string startDate, string endDate)
         {
-            var fnResult = new ServiceProcessResult<List<TransactionEntry>>
+            var fnResult = new ServiceProcessResult<TransactionData>
             {
                 ServiceProcessResultCode = (int)HttpStatusCode.OK
             };
@@ -30,7 +30,7 @@ namespace Infrastructure.Services
             {
                 var result = await _upAccountRepository.GetTransactionsFromUpApi(startDate, endDate);
 
-                if (result == null || !result.Any())
+                if (result == null || !result.Data.Any())
                 {
                     fnResult.ServiceProcessResultCode = (int)HttpStatusCode.NotFound;
                     fnResult.ServiceProcessResultMessage = "No transactions were found.";

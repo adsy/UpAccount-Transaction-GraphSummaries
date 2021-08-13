@@ -35,6 +35,8 @@ namespace Up.Account.Graphs.Backend
         {
             services.Configure<UpApiSettings>(Configuration.GetSection(UpApiSettings.UpApiSettingsKey));
 
+            services.AddHttpClient<IUpAccountRepository, UpAccountRepository>();
+
             services.AddTransient<IUpAccountService, UpAccountService>();
 
             services.AddTransient<IUpAccountRepository, UpAccountRepository>();

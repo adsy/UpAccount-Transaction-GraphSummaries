@@ -9,6 +9,6 @@ namespace Infrastructure.Interface.Repository
 {
     public interface IUpAccountRepository
     {
-        Task<List<TransactionEntry>> GetTransactionsFromUpApi(DateTime startDate, DateTime endDate);
+        Task<TransactionData> GetTransactionsFromUpApi(string startDate, string endDate);
     }
 }

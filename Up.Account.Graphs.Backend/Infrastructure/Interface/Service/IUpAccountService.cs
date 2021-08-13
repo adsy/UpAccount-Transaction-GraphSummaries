@@ -9,6 +9,6 @@ namespace Infrastructure.Interface
 {
     public interface IUpAccountService
     {
-        Task<ServiceProcessResult<List<TransactionEntry>>> GetAccountTransactions(DateTime startDate, DateTime endDate);
+        Task<ServiceProcessResult<TransactionData>> GetAccountTransactions(string startDate, string endDate);
     }
 }

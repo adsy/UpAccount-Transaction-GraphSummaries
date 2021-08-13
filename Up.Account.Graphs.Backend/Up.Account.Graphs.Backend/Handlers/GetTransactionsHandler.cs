@@ -10,7 +10,7 @@ using Up.Account.Graphs.Backend.Queries;
 
 namespace Up.Account.Graphs.Backend.Handlers
 {
-    public class GetTransactionsHandler : IRequestHandler<GetTransactionsQuery, ServiceProcessResult<List<TransactionEntry>>>
+    public class GetTransactionsHandler : IRequestHandler<GetTransactionsQuery, ServiceProcessResult<TransactionData>>
     {
         private readonly IUpAccountService _upAccountService;
 
@@ -19,7 +19,7 @@ namespace Up.Account.Graphs.Backend.Handlers
             _upAccountService = upAccountService ?? throw new ArgumentNullException(nameof(upAccountService));
         }
 
-        public async Task<ServiceProcessResult<List<TransactionEntry>>> Handle(GetTransactionsQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceProcessResult<TransactionData>> Handle(GetTransactionsQuery request, CancellationToken cancellationToken)
         {
             var result = await _upAccountService.GetAccountTransactions(request.startDate, request.endDate);
 
