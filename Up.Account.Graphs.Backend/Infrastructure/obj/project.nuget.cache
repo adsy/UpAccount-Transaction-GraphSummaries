@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0AF3OZjI2gNwpDNCajeT+iDBWtO5ChvNEDz77O7xWt6PH1AFWqO1eDddCjuu1YiRH33M4EoudM73yeT0Qk7RwQ==",
+  "dgSpecHash": "08/HHeLLMs7IBHsSRJFtVZ0qyv8X0FdpIbY2OKqlDNLxk8YDmHOCPN/Kr0EsGqvNxHfvTt4zjUFFdoGwIJHRtw==",
   "success": true,
   "projectFilePath": "C:\\Users\\adsyb\\Documents\\CODING\\Up.Account.Graphs.Backend\\Up.Account.Graphs.Backend\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -11,7 +11,8 @@
     "C:\\Users\\adsyb\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\adsyb\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
     "C:\\Users\\adsyb\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
-    "C:\\Users\\adsyb\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\adsyb\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\adsyb\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512"
   ],
   "logs": []
 }
