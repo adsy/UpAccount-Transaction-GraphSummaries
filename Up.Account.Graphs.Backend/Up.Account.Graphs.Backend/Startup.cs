@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,28 @@ namespace Up.Account.Graphs.Backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+              options.AddPolicy("Dev", builder =>
+              {
+                  // Allow multiple methods
+                  builder.WithMethods("GET", "POST", "PATCH", "DELETE", "OPTIONS")
+                    .WithHeaders(
+                      HeaderNames.Accept,
+                      HeaderNames.ContentType,
+                      HeaderNames.Authorization)
+                    .AllowCredentials()
+                    .SetIsOriginAllowed(origin =>
+                    {
+                        if (string.IsNullOrWhiteSpace(origin)) return false;
+                        // Only add this to allow testing with localhost, remove this line in production!
+                        if (origin.ToLower().StartsWith("http://localhost")) return true;
+                        // Insert your production domain here.
+                        if (origin.ToLower().StartsWith("not made yet")) return true;
+                        return false;
+                    });
+              })
+            );
+
             services.Configure<UpApiSettings>(Configuration.GetSection(UpApiSettings.UpApiSettingsKey));
 
             services.AddHttpClient<IUpAccountRepository, UpAccountRepository>();
@@ -63,6 +86,8 @@ namespace Up.Account.Graphs.Backend
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("Dev");
 
             app.UseAuthorization();
 

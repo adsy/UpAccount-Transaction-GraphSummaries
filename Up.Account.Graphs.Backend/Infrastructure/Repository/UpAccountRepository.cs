@@ -50,34 +50,43 @@ namespace Infrastructure.Repository
 
                     foreach (var transaction in transactionData.Data)
                     {
+                        var categoryName = "";
                         // track the description/id with the value
                         if (transaction.Relationships?.Category?.Data?.Id != null)
                         {
                             if (!transactionData.Categories.ContainsKey(transaction.Relationships.Category.Data.Id))
                             {
                                 transactionData.Categories.Add(transaction.Relationships.Category.Data.Id, transaction.Attributes.Amount.Value);
+                                categoryName = transaction.Relationships.Category.Data.Id;
                             }
                             else
                             {
                                 transactionData.Categories[transaction.Relationships.Category.Data.Id] += transaction.Attributes.Amount.Value;
+                                categoryName = transaction.Relationships.Category.Data.Id;
                             }
                         }
                         else
                         {
                             if (!transactionData.Categories.ContainsKey(transaction.Attributes.Description))
+                            {
                                 transactionData.Categories.Add(transaction.Attributes.Description, transaction.Attributes.Amount.Value);
+                                categoryName = transaction.Attributes.Description;
+                            }
                             else
+                            {
                                 transactionData.Categories[transaction.Attributes.Description] += transaction.Attributes.Amount.Value;
+                                categoryName = transaction.Attributes.Description;
+                            }
                         }
 
                         // track the inflow/outflow of money
                         if (transaction.Attributes.Amount.Value > 0)
                         {
-                            transactionData.TotalInflow += transaction.Attributes.Amount.Value;
+                            AddToTransactionList(transactionData, transaction, categoryName, true);
                         }
                         else
                         {
-                            transactionData.TotalOutflow -= transaction.Attributes.Amount.Value;
+                            AddToTransactionList(transactionData, transaction, categoryName, false);
                         }
                     }
 
@@ -90,6 +99,36 @@ namespace Infrastructure.Repository
             {
                 _log.LogError($"Exception thrown during {nameof(GetTransactionsFromUpApi)} - {e.Message}");
                 return null;
+            }
+        }
+
+        private void AddToTransactionList(TransactionData transactionData, TransactionEntry transaction, string categoryName, bool isPositiveFlag)
+        {
+            if (isPositiveFlag)
+            {
+                if (!transactionData.IncomingTransactions.ContainsKey(categoryName))
+                {
+                    transactionData.IncomingTransactions.Add(categoryName, transaction.Attributes.Amount.Value);
+                    transactionData.TotalInflow += transaction.Attributes.Amount.Value;
+                }
+                else
+                {
+                    transactionData.IncomingTransactions[categoryName] += transaction.Attributes.Amount.Value;
+                    transactionData.TotalInflow += transaction.Attributes.Amount.Value;
+                }
+            }
+            else
+            {
+                if (!transactionData.OutgoingTransactions.ContainsKey(categoryName))
+                {
+                    transactionData.OutgoingTransactions.Add(categoryName, transaction.Attributes.Amount.Value);
+                    transactionData.TotalOutflow -= transaction.Attributes.Amount.Value;
+                }
+                else
+                {
+                    transactionData.OutgoingTransactions[categoryName] += transaction.Attributes.Amount.Value;
+                    transactionData.TotalOutflow -= transaction.Attributes.Amount.Value;
+                }
             }
         }
 
